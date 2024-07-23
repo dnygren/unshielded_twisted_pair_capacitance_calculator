@@ -6,6 +6,7 @@
 # Permanent E-mail: dan.nygren@gmail.com
 #
 # Copyright 2013, 2024 by Daniel C. Nygren
+# BSD 0-clause license, "Zero Clause BSD", SPDX: 0BSD
 #
 #      This program calculates capacitances of unshielded twisted pairs made
 # from two individual pieces of hookup wire twisted together using two different
@@ -108,12 +109,12 @@ MM_PER_FT = 25.4 * 12.0
 for material in DIELECTRIC_LIST:
     for conductor in CONDUCTOR_LIST:
         for thickness in INSULATION_THICKNESS_LIST:
-            # General Cable capacitance equation (in pico Farads per foot)
+            # General Cable capacitance equation (in picofarads per foot)
             capacitance = ( 2.2 * material[1] ) / \
             math.log10( ( 1.3 * ( ( 2.0 * thickness ) + conductor[2] ) ) / \
             ( STRANDING_FACTOR * conductor[2] ) ) 
             capacitance_mm = capacitance / MM_PER_FT
-            # Howard Johnson capacitance equation (in pico Farads per foot)
+            # Howard Johnson capacitance equation (in picofarads per foot)
             capacitance2 = ( 12 * 0.7065 ) / \
             math.log( ( 2 * ( ( 2.0 * thickness ) + conductor[2] ) ) / \
             ( STRANDING_FACTOR * conductor[2] ) ) * material[1]
